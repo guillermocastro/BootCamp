@@ -1,0 +1,39 @@
+﻿@model BootCamp.Models.Author
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Author</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AuthorName" />
+            <div class="form-group">
+                <label asp-for="AuthorMail" class="control-label"></label>
+                <input asp-for="AuthorMail" class="form-control" />
+                <span asp-validation-for="AuthorMail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorReview" class="control-label"></label>
+                <input asp-for="AuthorReview" class="form-control" />
+                <span asp-validation-for="AuthorReview" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
